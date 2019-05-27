@@ -1,0 +1,193 @@
+<html>
+
+<head>
+	<title>Blue Yonder Test</title>
+	<!-- Compiled and minified CSS -->
+	<!-- Load Core Materialize CSS  -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+	<link rel="stylesheet" href="/static/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- Favicon -->
+</head>
+
+<body onload="init()">
+	
+	<header>
+		<nav class="blue">
+			<div class="nav-wrapper">
+				<ul id="nav-mobile" class="left hide-on-med-and-down">
+					<li class="active">
+						<a href="/">Home</a>
+					</li>
+				</ul>
+				<p class="flow-text center hide-on-med-and-down">Data Science Test</p>
+			</div>
+		</nav>
+	</header>
+
+	<main>
+
+		<!-- Container Element -->
+		<div class="container">
+			<div class="row">
+				<div class="col">
+
+					<div class="divider" style="width:360px"></div>
+
+					<div class="section" style="background-color: white; padding:20px">
+						<h6>Seasons</h6>
+
+						<form action="#">
+							<a class="waves-effect waves-light btn" onclick="myFunction('Summer')" id="test1" style="background-color:#159CEE;"><i class="fa fa-sun-o" style="font-size:30px;color:yellow;" ></i></a>
+							<a class="waves-effect waves-light btn" onclick="myFunction('Winter')"id="test2" style="background-color:#159CEE;"><i class="fa fa-snowflake-o" style="font-size:30px;color:blue;"></i></a>
+							<a class="waves-effect waves-light btn" onclick="myFunction('Autumn')" id="test3" style="background-color:#159CEE;"><i class="fa fa-leaf" style="font-size:30px;color:red;"></i></a>
+							<a class="waves-effect waves-light btn" onclick="myFunction('Spring')"id="test4" style="background-color:#159CEE;"><i class="fa fa-pagelines" style="font-size:30px;color:green;" ></i></a>
+						</form>
+					</div>
+
+					<div class="divider" style="width:360px"></div>
+					
+					<div class="section" style="background-color: white; padding:20px">
+						<h6>Day of the Week</h6>
+						
+						<form action="#">
+							<input class="with-gap" name="group1" type="radio" id="test5" onclick="myFunction('Holiday')"/>
+							<label for="test5">Holiday</label>
+							
+							<input class="with-gap" name="group1" type="radio" id="test6" onclick="myFunction('Weekend')" />
+							<label for="test6">Weekend</label>
+							
+							<input class="with-gap" name="group1" type="radio" id="test7" onclick="myFunction('Weekday')" />
+							<label for="test7">Weekday</label>
+							
+							<input class="with-gap" name="group1" type="radio" id="test8" onclick="myFunction('WorkingDay')" />
+							<label for="test7">Working Day</label>
+						</form>
+					</div>
+
+					<div class="divider" style="width:360px"></div>
+					
+					<div class="section" style="background-color: white; padding:20px">
+						<h6>Weather</h6>
+						<form action="#">
+
+							<a class="waves-effect waves-light btn" href="#" onclick="myFunction('Sunny')" id="test8" style="background-color:#159CEE;"><i class="fa fa-sun-o" style="font-size:30px;"></i></a>
+							
+							<a class="waves-effect waves-light btn" href="#" onclick="myFunction('Rainy')" id="test9" style="background-color:#159CEE;"><i class="fa fa-umbrella" style="font-size:30px;" ></i></a>
+							
+							<a class="waves-effect waves-light btn" href="#" onclick="myFunction('Stormy')" id="test10" style="background-color:#159CEE;"><i class="fa fa-flash" style="font-size:30px;" ></i></a>
+							
+							<a class="waves-effect waves-light btn" href="#" onclick="myFunction('Cloudy')"id="test11" style="background-color:#159CEE;"><i class="fa fa-cloud" style="font-size:30px;" ></i></a>
+						</form>
+					</div>
+
+					<div class="divider" style="width:360px"></div>
+					
+					<div class="section" style="height:100px;background-color: white; padding:20px" >
+						<h6>Temperature</h6>
+						<span id="temp_label">21</span> F
+						<p>
+							<form action="#">
+								<p class="range-field">
+									<input type="range" id="sliderDiv1" min="0" max="150" style="width: 200px" onchange="updateTemperature(this.value)" />
+								</p>
+							</form>
+						</p>
+					</div>
+
+					<div class="section" style="height:100px;background-color: white; padding:20px">
+						<h6>Actual Temperature</h6>
+						<span id="atemp_label">22</span> F
+						<p>
+							<form action="#">
+								<p class="range-field">
+									<input type="range" id="sliderDiv2" min="0" max="150" style="width: 200px" onchange="updateActualTemperature(this.value)" />
+								</p>
+							</form>
+						</p>
+					</div>
+				</div>
+
+				<div class="section" style="height:100px;background-color: white; padding:20px">
+					<h6>Windspeed</h6>
+					<span id="windspeed_label">57</span> 
+					<p>
+						<form action="#">
+							<p class="range-field">
+								<input type="range" id="sliderDiv3" min="0" max="100" style="width: 200px" onchange="updateWindSpeed(this.value)"/>
+							</p>
+						</form>
+					</p>
+
+					<div class="section" style="background-color: white">
+						<h6>Humidity <span id="humidity_label">15</span>% </h6>
+						<form action="#">
+							<p class="range-field">
+								<input type="range" id="sliderDiv4" min="0" max="100" style="width: 200px" onchange="updateHumidity(this.value)"/>
+							</form>
+							<b>
+								<div class="row green-text" id="response" style="margin-top: 42px">
+								</div>
+							</b>
+						</div>
+					</div>
+					
+					<div class="section" style="background-color: white">
+						<h6>Hour</h6>
+						<span id="hour_label">15</span>% 
+
+						<form action="#">
+							<p class="range-field">
+								<input type="range" id="sliderDiv4" min="0" max="23" style="width: 250px" onchange="updateHour(this.value)"/>
+							</form>
+							<b>
+								<div class="row green-text" id="response" style="margin-top: 42px">
+									<button class="btn btn-default" onclick="submit()">Submit</button>
+
+								</div>
+							</b>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</main>
+		<hr>
+
+		<footer class="page-footer blue">
+			<div class="container">
+				<div class="row">
+					<div class="col l6 s12">
+						<h5 class="white-text">Blue Yonder Test</h5>
+						<p class="grey-text text-lighten-4">Predicting the number of cycles required each day</p>
+					</div>
+					<div class="col l4 offset-l2 s12">
+						<h5 class="white-text">Links</h5>
+						<ul>
+							<li>
+								<a class="grey-text text-lighten-3" href="https://github.com/Godskid89">Github</a>
+							</li>
+							<li>
+								<a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/joseph-oladokun-861283111/">LinkedIn</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					© 2019 Joseph Oladokun
+				</div>
+			</div>
+		</footer>
+
+		<!-- Javascript files (load jQuery before Materialize JS) -->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+		<script type="text/javascript" src="/static/js/script.js"></script>
+	</body>
+
+	</html>
