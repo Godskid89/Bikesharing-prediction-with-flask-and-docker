@@ -1,0 +1,1 @@
+from models.ml_model import load_bike_model
